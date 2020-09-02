@@ -1,4 +1,4 @@
-<b>Realms of Arkania 3: Varjojen kaupunki Riva -Steam työkalu</b> <p>
+<b>Realms of Arkania 3: Varjojen kaupunki Riva Steam -työkalu</b> <p>
 Tämä työkalu on tarkoitettu prosessin helpottamiseksi, jos sinulla on hallussasi harvinainen suomennettu versio RoA3 -pelistä
 ja tahdot kääntää pelin Steam-version suomeksi.
 
