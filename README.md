@@ -8,4 +8,3 @@ Työkalu vaatii toimiakseen sinulta seuraavat asiat:
 * RoA3 Suomiversio asennettuna (Tai vähintään purettuna niin, että käytössäsi on suomiversion DATA & GAMES -kansiot sisältöineen)
 
 Ohjelma on koodattu nopeasti VB.NET:llä ja bugeja löytyy varmasti, sekä virheitä.
-Versio 0.2 korjaa hieman asioita ja lisää ominaisuuden vaihtaa soundtrack alkuperäiseen, tai takaisin Steam -version Redbook Audioon.
