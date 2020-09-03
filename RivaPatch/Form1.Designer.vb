@@ -47,7 +47,7 @@ Partial Class Form1
         'Label1
         '
         Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(12, 204)
+        Me.Label1.Location = New System.Drawing.Point(12, 218)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(280, 13)
         Me.Label1.TabIndex = 0
@@ -56,7 +56,7 @@ Partial Class Form1
         'Button1
         '
         Me.Button1.ForeColor = System.Drawing.Color.Black
-        Me.Button1.Location = New System.Drawing.Point(15, 246)
+        Me.Button1.Location = New System.Drawing.Point(15, 260)
         Me.Button1.Name = "Button1"
         Me.Button1.Size = New System.Drawing.Size(105, 23)
         Me.Button1.TabIndex = 2
@@ -66,7 +66,7 @@ Partial Class Form1
         'Button2
         '
         Me.Button2.ForeColor = System.Drawing.Color.Black
-        Me.Button2.Location = New System.Drawing.Point(15, 324)
+        Me.Button2.Location = New System.Drawing.Point(15, 338)
         Me.Button2.Name = "Button2"
         Me.Button2.Size = New System.Drawing.Size(105, 23)
         Me.Button2.TabIndex = 5
@@ -76,7 +76,7 @@ Partial Class Form1
         'Label2
         '
         Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(12, 282)
+        Me.Label2.Location = New System.Drawing.Point(12, 296)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(223, 13)
         Me.Label2.TabIndex = 3
@@ -85,7 +85,7 @@ Partial Class Form1
         'Button3
         '
         Me.Button3.ForeColor = System.Drawing.Color.Black
-        Me.Button3.Location = New System.Drawing.Point(15, 415)
+        Me.Button3.Location = New System.Drawing.Point(15, 429)
         Me.Button3.Name = "Button3"
         Me.Button3.Size = New System.Drawing.Size(105, 23)
         Me.Button3.TabIndex = 8
@@ -95,7 +95,7 @@ Partial Class Form1
         'Label3
         '
         Me.Label3.AutoSize = True
-        Me.Label3.Location = New System.Drawing.Point(12, 360)
+        Me.Label3.Location = New System.Drawing.Point(12, 374)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(262, 26)
         Me.Label3.TabIndex = 6
@@ -105,7 +105,7 @@ Partial Class Form1
         'Button4
         '
         Me.Button4.ForeColor = System.Drawing.Color.Black
-        Me.Button4.Location = New System.Drawing.Point(15, 490)
+        Me.Button4.Location = New System.Drawing.Point(15, 504)
         Me.Button4.Name = "Button4"
         Me.Button4.Size = New System.Drawing.Size(406, 31)
         Me.Button4.TabIndex = 9
@@ -114,7 +114,7 @@ Partial Class Form1
         '
         'ProgressBar1
         '
-        Me.ProgressBar1.Location = New System.Drawing.Point(12, 527)
+        Me.ProgressBar1.Location = New System.Drawing.Point(12, 541)
         Me.ProgressBar1.Name = "ProgressBar1"
         Me.ProgressBar1.Size = New System.Drawing.Size(412, 10)
         Me.ProgressBar1.TabIndex = 11
@@ -123,7 +123,7 @@ Partial Class Form1
         '
         Me.midiost.AutoSize = True
         Me.midiost.Checked = True
-        Me.midiost.Location = New System.Drawing.Point(15, 444)
+        Me.midiost.Location = New System.Drawing.Point(15, 458)
         Me.midiost.Name = "midiost"
         Me.midiost.Size = New System.Drawing.Size(230, 17)
         Me.midiost.TabIndex = 12
@@ -134,7 +134,7 @@ Partial Class Form1
         'redbookost
         '
         Me.redbookost.AutoSize = True
-        Me.redbookost.Location = New System.Drawing.Point(15, 467)
+        Me.redbookost.Location = New System.Drawing.Point(15, 481)
         Me.redbookost.Name = "redbookost"
         Me.redbookost.Size = New System.Drawing.Size(244, 17)
         Me.redbookost.TabIndex = 13
@@ -144,8 +144,9 @@ Partial Class Form1
         'RivaDir
         '
         Me.RivaDir.DataBindings.Add(New System.Windows.Forms.Binding("Text", Global.RivaPatch.My.MySettings.Default, "DATADirectory", True, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged))
-        Me.RivaDir.Location = New System.Drawing.Point(15, 389)
+        Me.RivaDir.Location = New System.Drawing.Point(15, 403)
         Me.RivaDir.Name = "RivaDir"
+        Me.RivaDir.ReadOnly = True
         Me.RivaDir.Size = New System.Drawing.Size(406, 22)
         Me.RivaDir.TabIndex = 7
         Me.RivaDir.Text = Global.RivaPatch.My.MySettings.Default.DATADirectory
@@ -153,8 +154,9 @@ Partial Class Form1
         'RivaImg
         '
         Me.RivaImg.DataBindings.Add(New System.Windows.Forms.Binding("Text", Global.RivaPatch.My.MySettings.Default, "RivaIMGDirectory", True, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged))
-        Me.RivaImg.Location = New System.Drawing.Point(15, 298)
+        Me.RivaImg.Location = New System.Drawing.Point(15, 312)
         Me.RivaImg.Name = "RivaImg"
+        Me.RivaImg.ReadOnly = True
         Me.RivaImg.Size = New System.Drawing.Size(406, 22)
         Me.RivaImg.TabIndex = 4
         Me.RivaImg.Text = Global.RivaPatch.My.MySettings.Default.RivaIMGDirectory
@@ -162,8 +164,9 @@ Partial Class Form1
         'SteamDir
         '
         Me.SteamDir.DataBindings.Add(New System.Windows.Forms.Binding("Text", Global.RivaPatch.My.MySettings.Default, "SteamDirectory", True, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged))
-        Me.SteamDir.Location = New System.Drawing.Point(15, 220)
+        Me.SteamDir.Location = New System.Drawing.Point(15, 234)
         Me.SteamDir.Name = "SteamDir"
+        Me.SteamDir.ReadOnly = True
         Me.SteamDir.Size = New System.Drawing.Size(406, 22)
         Me.SteamDir.TabIndex = 1
         Me.SteamDir.Text = Global.RivaPatch.My.MySettings.Default.SteamDirectory
@@ -171,7 +174,7 @@ Partial Class Form1
         'Label4
         '
         Me.Label4.AutoSize = True
-        Me.Label4.Location = New System.Drawing.Point(9, 107)
+        Me.Label4.Location = New System.Drawing.Point(9, 121)
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(420, 65)
         Me.Label4.TabIndex = 14
@@ -179,10 +182,10 @@ Partial Class Form1
         '
         'PictureBox1
         '
-        Me.PictureBox1.Image = CType(resources.GetObject("PictureBox1.Image"), System.Drawing.Image)
-        Me.PictureBox1.Location = New System.Drawing.Point(65, 2)
+        Me.PictureBox1.Image = Global.RivaPatch.My.Resources.Resources.logo1
+        Me.PictureBox1.Location = New System.Drawing.Point(5, 0)
         Me.PictureBox1.Name = "PictureBox1"
-        Me.PictureBox1.Size = New System.Drawing.Size(287, 87)
+        Me.PictureBox1.Size = New System.Drawing.Size(424, 104)
         Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
         Me.PictureBox1.TabIndex = 10
         Me.PictureBox1.TabStop = False
@@ -191,7 +194,7 @@ Partial Class Form1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(433, 547)
+        Me.ClientSize = New System.Drawing.Size(433, 563)
         Me.Controls.Add(Me.Label4)
         Me.Controls.Add(Me.redbookost)
         Me.Controls.Add(Me.midiost)
