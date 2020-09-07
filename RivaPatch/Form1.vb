@@ -1,4 +1,8 @@
 ﻿Imports System.IO
+Imports System
+Imports System.Collections.Generic
+Imports System.Diagnostics
+Imports System.Threading
 
 Public Class Form1
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
@@ -83,53 +87,66 @@ Public Class Form1
     End Sub
 
     Private Sub PictureBox1_Click(sender As Object, e As EventArgs) Handles PictureBox1.Click
-        MsgBox("Versio " + My.Application.Info.Version.ToString + Environment.NewLine + "Tää oli tässä Edition." + Environment.NewLine + Environment.NewLine + "Tässä versiossa pitäs olla kaikki kondiksessa, mutta jos jotain virheitä ilmenee, ota yhteys Discordissa Alt#0666." + Environment.NewLine + "-Alt", MsgBoxStyle.Information, "Tietoa")
+        MsgBox("Versio " + My.Application.Info.Version.ToString + Environment.NewLine + "Yks päivitys vielä EDITION" + Environment.NewLine + Environment.NewLine + " Jos ohjelman kanssa on ongelmia, ota yhteys Discordissa Alt#0666." + Environment.NewLine + "-Alt", MsgBoxStyle.Information, "Tietoa")
     End Sub
 
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         'Background Color
         Me.BackColor = ColorTranslator.FromHtml("#36393E") 'Background
         Me.ForeColor = Color.White 'Form text
+        SteamDir.Select(0, 0)
         PictureBox1.Focus()
     End Sub
 
-    Private Sub redbookost_CheckedChanged(sender As Object, e As EventArgs) Handles redbookost.CheckedChanged
+    Private Sub LinkLabel1_LinkClicked(sender As Object, e As LinkLabelLinkClickedEventArgs) Handles LinkLabel1.LinkClicked
+        MsgBox("Saat tarvittavat kansiot seuraavilla tavoilla:" + Environment.NewLine + "1. Voit asentaa pelin käyttämällä DOSBOXia" + Environment.NewLine + "2. Avaamalla levykuvan WinCDEMu'lla ja kopioimalla kansiot levyltä esimerkiksi samaan kansioon RIVA.img kanssa. Suosittelen tätä tapaa, sillä se on helpompaa ja toimii varmasti. DOSBoxilla pelin asennus on vaativampaa ja vaatii osaamista ohjelman käytön kanssa.", MsgBoxStyle.Information, "Vinkki")
 
     End Sub
 
-    Private Sub midiost_CheckedChanged(sender As Object, e As EventArgs) Handles midiost.CheckedChanged
-
+    Private Sub Button7_Click(sender As Object, e As EventArgs) Handles Button7.Click
+        If SteamDir.Text = "" Then
+            MsgBox("Hups! Taisit unohtaa jotakin! Syötä Steam -version hakemisto.", MsgBoxStyle.Critical, "Virhe!")
+        Else
+            'Change Soundtrack
+            If midiost.Checked = True Then
+                IO.File.WriteAllBytes(SteamDir.Text & "\realms3.inst", My.Resources.realms3)
+                MsgBox("Sountrack vaihdettiin: Alkuperäinen MIDI ", MsgBoxStyle.Information, "Valmista!")
+            ElseIf redbookost.Checked = True Then
+                IO.File.WriteAllBytes(SteamDir.Text & "\realms3.inst", My.Resources.redbook)
+                MsgBox("Sountrack vaihdettiin: Steam Redbook CD ", MsgBoxStyle.Information, "Valmista!")
+            End If
+        End If
     End Sub
 
-    Private Sub ProgressBar1_Click(sender As Object, e As EventArgs) Handles ProgressBar1.Click
-
+    Private Sub PalautaSteamvarmuuskopiotToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles PalautaSteamvarmuuskopiotToolStripMenuItem.Click
+        Dim result As DialogResult = MessageBox.Show("Haluatko palauttaa STEAM -version varmuuskopiot?", "Varmuuskopiointi", MessageBoxButtons.YesNo)
+        If result = DialogResult.No Then
+            'Käyttäjä perui
+        ElseIf result = DialogResult.Yes Then
+            'Käyttäjä varmuuskopioi
+            If My.Computer.FileSystem.DirectoryExists(SteamDir.Text + "\SaveBackup") Then
+                My.Computer.FileSystem.CopyDirectory(SteamDir.Text + "\SaveBackup", SteamDir.Text & "\GAMES", True)
+                MsgBox("Varmuuskopiot palautettiin!", MsgBoxStyle.Information, "Valmista!")
+            Else
+                MsgBox("Jokin meni vikaan...", MsgBoxStyle.Exclamation, "Outoa!")
+            End If
+        End If
     End Sub
 
-    Private Sub Label4_Click(sender As Object, e As EventArgs) Handles Label4.Click
-
-    End Sub
-
-    Private Sub RivaDir_TextChanged(sender As Object, e As EventArgs) Handles RivaDir.TextChanged
-
-    End Sub
-
-    Private Sub Label3_Click(sender As Object, e As EventArgs) Handles Label3.Click
-
-    End Sub
-
-    Private Sub RivaImg_TextChanged(sender As Object, e As EventArgs) Handles RivaImg.TextChanged
-
-    End Sub
-
-    Private Sub Label2_Click(sender As Object, e As EventArgs) Handles Label2.Click
-
-    End Sub
-
-    Private Sub SteamDir_TextChanged(sender As Object, e As EventArgs) Handles SteamDir.TextChanged
-
-    End Sub
-
-    Private Sub Label1_Click(sender As Object, e As EventArgs) Handles Label1.Click
-
+    Private Sub VarmuuskopioiSteamtallenuksetToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles VarmuuskopioiSteamtallenuksetToolStripMenuItem.Click
+        Dim result As DialogResult = MessageBox.Show("Haluatko varmuuskopioida STEAM -version tallenukset?", "Varmuuskopiointi", MessageBoxButtons.YesNo)
+        If result = DialogResult.No Then
+            'Käyttäjä perui
+        ElseIf result = DialogResult.Yes Then
+            'Käyttäjä varmuuskopioi
+            If My.Computer.FileSystem.DirectoryExists(SteamDir.Text + "\SaveBackup") Then
+                My.Computer.FileSystem.CopyDirectory(SteamDir.Text + "\GAMES", SteamDir.Text & "\SaveBackup", True)
+                MsgBox("Tiedostot varmuuskopioitiin. Löydät ne täältä: " + SteamDir.Text + "\SaveBackup", MsgBoxStyle.Information, "Valmista!")
+            Else
+                My.Computer.FileSystem.CreateDirectory(SteamDir.Text + "\SaveBackup")
+                My.Computer.FileSystem.CopyDirectory(SteamDir.Text + "\GAMES", SteamDir.Text & "\SaveBackup", True)
+                MsgBox("Tiedostot varmuuskopioitiin. Löydät ne täältä: " + SteamDir.Text + "\SaveBackup", MsgBoxStyle.Information, "Valmista!")
+            End If
+        End If
     End Sub
 End Class
