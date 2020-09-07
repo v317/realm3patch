@@ -271,7 +271,7 @@ Partial Class Form1
         '
         Me.VarmuuskopiointiToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.VarmuuskopioiSteamtallenuksetToolStripMenuItem, Me.PalautaSteamvarmuuskopiotToolStripMenuItem})
         Me.VarmuuskopiointiToolStripMenuItem.Name = "VarmuuskopiointiToolStripMenuItem"
-        Me.VarmuuskopiointiToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.VarmuuskopiointiToolStripMenuItem.Size = New System.Drawing.Size(167, 22)
         Me.VarmuuskopiointiToolStripMenuItem.Text = "Varmuuskopiointi"
         '
         'VarmuuskopioiSteamtallenuksetToolStripMenuItem
