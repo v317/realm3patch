@@ -8,3 +8,7 @@ Työkalu vaatii toimiakseen sinulta seuraavat asiat:
 * RoA3 Suomiversio asennettuna (Tai vähintään purettuna niin, että käytössäsi on suomiversion DATA & GAMES -kansiot sisältöineen)
 
 Ohjelma on koodattu nopeasti VB.NET:llä ja bugeja löytyy varmasti, sekä virheitä.
+
+
+This application includes DiscUtils and DotNetZip even though they are not yet utilized. Some testing is under the way and they will be most likely used.
+Copyright to these belong to their owners.
